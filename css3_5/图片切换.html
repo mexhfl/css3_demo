@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片切换</title>
+
+<style>
+@keyframes anim{
+	0%{
+		transform:rotateX(180deg); 
+		opacity:0;
+		}
+	50%{
+		transform:rotateX(-30deg); 
+		opacity:0.5;
+		}
+	60%{
+		transform:rotateX(20deg); 
+		opacity:0.6;
+		}
+	70%{
+		transform:rotateX(-15deg); 
+		opacity:0.7;
+		}
+	80%{
+		transform:rotateX(10deg); 
+		opacity:0.8;
+		}
+	90%{
+		transform:rotateX(-5deg); 
+		opacity:0.9;
+		}
+	100%{
+		transform:rotateX(0deg); 
+		opacity:1;
+		}
+	}
+@keyframes hide{
+	0%{
+		transform:rotateX(0deg); 
+		opacity:1;
+		}
+	100%{
+		transform:rotateX(-180deg); 
+		opacity:0;
+		}
+	}
+#warp{width:400px; height:300px; position:relative; margin:40px auto; perspective:800px; transform-style:preserve-3d;}
+img{width:400px; height:300px; position:absolute; left:0; top:0; transform-origin:bottom; transform:rotateX(-180deg); opacity:0;}
+#warp input{width:60px; height:60px; margin:0; padding:0; background:rgba(121,0,124,1.00); border-radius:50%; border:1px rgba(0,0,0,1.00) solid; position:absolute; top:100px; outline:none; color:rgba(255,255,255,1.00);}
+#warp input:nth-of-type(1){left:-100px;}
+#warp input:nth-of-type(2){right:-100px;}
+.show{ transform:rotateX(0deg);opacity:1; animation:1s anim;}
+.hide{opacity:0; animation:0.6s hide;}
+
+</style>
+
+
+<script>
+window.onload=function(){
+	var owarp=document.getElementById('warp');
+	var abtn=owarp.getElementsByTagName('input');
+	var aimg=owarp.getElementsByTagName('img');
+	
+	var inow=0;
+
+/*	if(inow==aimg.length){
+		inow=0;
+		alert('inow');
+		}*/
+
+	
+	abtn[1].onclick=function(){
+		aimg[inow].className='hide';
+		inow++;
+		
+		if(inow>=aimg.length){
+		inow=0;
+		}
+		
+		aimg[inow].className='show';
+
+		}
+		
+	abtn[0].onclick=function(){
+		aimg[inow].className='hide';
+		inow--;
+		
+		if(inow<0){
+		inow=aimg.length-1;
+		}
+		
+		aimg[inow].className='show';
+		}
+		
+
+	}
+</script>
+</head>
+
+<body>
+<div id="warp">
+	<input type="button" value="上一张"/>
+    <input type="button" value="下一张"/>
+    <img src="3dhdp/1.jpg" class="show"/>
+    <img src="3dhdp/2.jpg"/>
+    <img src="3dhdp/3.jpg"/>
+    <img src="3dhdp/4.jpg"/>
+    <img src="3dhdp/5.jpg"/>
+    <img src="3dhdp/6.jpg"/>
+    
+    
+</div>
+<br>
+支持ie10+
+</body>
+</html>

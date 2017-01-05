@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动画</title>
+<style>
+@keyframes move
+{
+	25%{
+		width:120px;
+		background:yellow;
+		}
+	80%{
+		width:500px;
+		background:blue;
+		}
+	}
+#box{width:100px; height:100px; background:red;animation:1s move ease-in 5;}
+</style>
+</head>
+
+<body>
+<div id="warp">
+<div id="box"></div>
+</div>
+<br>
+<br>
+ie10+支持
+</body>
+</html>

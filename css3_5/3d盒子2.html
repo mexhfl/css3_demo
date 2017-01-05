@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3d变换</title>
+<style>
+#warp{ width:100px; height:100px; padding:100px; border:5px #000 solid; margin:100px auto; perspective:200px;}
+#box{width:100px; height:100px; position:relative; transform-style:preserve-3d; transition:10s; transform-origin:center center -50px;}
+#box div{width:100px; height:100px; position:absolute; color:#fff; font-size:50px; text-align:center; line-height:100px;}
+#box div:nth-of-type(1){left:0;top:-100px; background:rgba(185,200,35,1.00); transform-origin:bottom; transform:rotateX(-90deg);}
+#box div:nth-of-type(2){left:-100px;top:0; background:rgba(175,82,216,1.00);transform-origin:right; transform:rotateY(90deg);}
+#box div:nth-of-type(3){left:0;top:0; background:rgba(177,167,25,1.00);}
+#box div:nth-of-type(4){left:0;top:100px; background:rgba(60,219,216,1.00);transform-origin:top; transform:rotateX(90deg)}
+#box div:nth-of-type(5){left:100px;top:0; background:rgba(26,69,168,1.00);transform-origin:left; transform:rotateY(-90deg);}
+#box div:nth-of-type(6){left:0;top:0; background:rgba(245,34,119,1.00);transform:translateZ(100px);}
+ 
+#warp:hover #box{transform:rotateX(360deg);}
+</style>
+</head>
+
+<body>
+<div id="warp">
+  <div id="box">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+  </div>
+</div>
+支持chrome,opera,firefox
+
+</body>
+</html>

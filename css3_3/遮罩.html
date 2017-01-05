@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>遮罩</title>
+<style>
+#box{ width:800px; height:800px; background:url(miaov.jpg) no-repeat; background-size:100% 100%; border:10px #000000 solid;-webkit-mask:url(mask.png) no-repeat; transition:2s;}
+#box:hover{-webkit-mask-position:100% 100%;}
+</style>
+</head>
+
+<body>
+<div id="box"></div>
+仅支持chrome
+</body>
+</html>

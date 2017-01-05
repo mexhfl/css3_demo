@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>自定义字体</title>
+<style>
+*{ padding:0px; margin:0px;}
+@font-face {
+    font-family: 'jindong';
+    src: url('1-webfont.eot');
+    src: url('1-webfont.eot?#iefix') format('embedded-opentype'),
+         url('1-webfont.woff') format('woff'),
+         url('1-webfont.ttf') format('truetype'),
+         url('1-webfont.svg#untitledregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+p{font:100px/200px "jindong"; text-align:center;}
+p:hover{ color:#FF7E00; transition:1s;}
+</style>
+</head>
+
+<body>
+<p>ABCDEFGHIJKLM</p>
+
+</body>
+</html>

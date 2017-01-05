@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3d幻灯片</title>
+<style id="css">
+body,ul,ol{margin:0px; padding:0px;}
+li{list-style:none;}
+#warp{width:800px; margin:100px auto 0;}
+#piclist{width:800px; height:360px; perspective:800px; perspective-origin:center;}
+#piclist li{width:80px; height:360px; position:relative; transform-style:preserve-3d; transform-origin:center center -180px;/*transform:rotateX(-90deg);*/ float:left;}
+#piclist li a{width:100%; height:100%; position:absolute; left:0px; top:0;}
+#piclist li a:nth-of-type(1){ background:url(img/1.jpg) no-repeat;}
+#piclist li a:nth-of-type(2){ background:url(img/2.jpg) no-repeat; top:-360px; transform-origin:bottom; transform:rotateX(90deg);}
+#piclist li a:nth-of-type(3){ background:url(img/3.jpg) no-repeat; transform:translateZ(-360px) rotateX(180deg);}
+#piclist li a:nth-of-type(4){ background:url(img/4.jpg) no-repeat; top:360px; transform-origin:top; transform:rotateX(-90deg);}
+
+#piclist li span{position:absolute; width:360px; height:360px; background:#333; }
+#piclist li span:nth-of-type(1){ transform-origin:left; transform:rotateY(90deg); left:0;}
+#piclist li span:nth-of-type(2){ transform-origin:right; transform:rotateY(-90deg); right:0;}
+#btns{float:right; padding:10px 0;}
+
+#btns li{width:40px; height:40px; background:rgba(0,0,0,1.00); color:rgba(255,255,255,1.00); border-radius:50%; font:italic 30px/40px '黑体'; float:left; margin:0 5px; text-align:center;}
+#btns .active{background:#f60;}
+
+/*#piclist li:nth-of-type(8) a{background-position:-350px 0;}*/
+
+</style>
+<script>
+window.onload=function(){
+	var opl=document.getElementById('piclist');
+	var ocss=document.getElementById('css');
+	var abtn=document.getElementById('btns').getElementsByTagName('li');
+	var wli=document.getElementById('piclist').getElementsByTagName('li')[0];
+	var ali=null;
+	var sli='';
+	var scss='';
+	var iliw=wli.offsetWidth;
+	var izindex=0;
+	var inow=0;
+	var ilength=opl.offsetWidth/iliw;
+	//alert(ilength);
+	for(var i=0;i<ilength;i++){
+		
+		i>ilength/2?izindex--:izindex++;
+		
+		sli+='<li><a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a><span></span><span></span></li>';
+		scss+='#piclist li:nth-of-type('+(i+1)+') a{background-position:-'+(i)*iliw+'px 0;} ';
+		scss+='#piclist li:nth-of-type('+(i+1)+'){z-index:'+izindex+'} ';
+		}
+	opl.innerHTML=sli;
+	ocss.innerHTML+=scss;
+	ali=opl.children;
+	
+	
+	for(var i=0;i<abtn.length;i++)
+	{
+		(function(a){
+			abtn[a].onclick=function()
+			{
+				for(var i=0;i<ali.length;i++)
+				{
+					ali[i].style.transition="0.5s "+i*50+"ms";
+					ali[i].style.transform="rotateX(-"+a*90+"deg)";
+				}	
+			this.className='active';
+			abtn[inow].className='';
+			inow=a;
+			};	
+		})(i)
+	}
+	
+	}
+</script>
+</head>
+
+<body>
+<div id="warp">
+	<ul id="piclist">
+    	<li>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <span></span>
+            <span></span>
+        </li>
+        
+<!--        <li>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <span></span>
+            <span></span>
+        </li>-->
+    </ul>
+    <ol id="btns">
+    	<li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+
+    </ol>
+
+</div>
+支持chrome,opera,firefox
+</body>
+</html>

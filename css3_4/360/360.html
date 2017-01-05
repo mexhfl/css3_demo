@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+html{height:100%;overflow:hidden;}
+body{ background:#f9f9f9;}
+#menu{width:50px;height:50px; position:fixed;right:20px; bottom:20px; }
+#menu_list{height:42px;width:42px; position:relative;margin:4px;}
+#menu_list img{ border-radius:21px;position:absolute;left:0;top:0;border-radius:21px; }
+#home{width:50px;height:50px;background:url(home.png) no-repeat; border-radius:25px; position:absolute; left:0;top:0; transition:1s;}
+</style>
+<script>
+window.onload=function(){
+var ohome=document.getElementById('home');
+var aimg=document.getElementById('menu_list').getElementsByTagName('img');
+
+var boff=true;
+var ir=-150;
+
+for(var i=0;i<aimg.length;i++){
+	aimg[i].onclick=function(){
+		this.style.transition='0.3s';
+		this.style.transform='scale(2)';
+		this.style.opacity=0.2;
+		addEnd(this,end);
+		}
+	}
+function end(){
+	this.style.transition='0.1s';
+	this.style.transform='scale(1) rotate(-720deg)';
+	this.style.opacity=1;
+	removeEnd(this,end);
+	}
+
+ohome.onclick=function(){
+	if(boff){
+		ohome.style.transform='rotate(-360deg)';
+		for(var i=0;i<aimg.length;i++){
+			var olt=toLT(ir,90/4*i);
+			aimg[i].style.transition=i*100+100+'ms';
+			aimg[i].style.transform='rotate(-720deg)';
+			aimg[i].style.left=olt.l+'px';
+			aimg[i].style.top=olt.t+'px';
+			
+			}
+		
+	}else{
+		ohome.style.transform='rotate(0deg)';
+		for(var i=0;i<aimg.length;i++){
+			var olt=toLT(ir,90/4*i);
+			aimg[i].style.transition=(aimg.length-i)*100+'ms';
+			aimg[i].style.transform='rotate(0deg)';
+			aimg[i].style.left=0+'px';
+			aimg[i].style.top=0+'px';
+			
+			}
+		
+		}
+	boff=!boff;
+	}
+	
+function toLT(ir,ideg){
+/*	var ileft=Math.round(Math.sin(ideg/180*Math.PI)*ir);
+	var itop=Math.round(Math.cos(ideg/180*Math.PI)*ir);*/
+	return {l:Math.round(Math.sin(ideg/180*Math.PI)*ir),t:Math.round(Math.cos(ideg/180*Math.PI)*ir)};
+	}
+	
+function addEnd(obj,fn)
+{
+	obj.addEventListener('WebkitTransitionEnd',fn,false);
+	obj.addEventListener('transitionend',fn,false);
+}
+function removeEnd(obj,fn)
+{
+	obj.removeEventListener('WebkitTransitionEnd',fn,false);
+	obj.removeEventListener('transitionend',fn,false);
+}
+	
+}
+</script>
+</head>
+<body>
+<div id="menu">
+	<div id="menu_list">
+    	<img src="prev.png" alt=""/>
+        <img src="open.png" alt="" />
+        <img src="clos.png" alt="" />
+        <img src="full.png" alt="" />
+        <img src="refresh.png" alt="" />
+    </div>
+	<div id="home"></div>
+</div>
+</body>
+</html>

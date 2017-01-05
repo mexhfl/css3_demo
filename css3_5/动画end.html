@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动画</title>
+<style>
+@keyframes move
+{
+	25%{
+		width:120px;
+		background:yellow;
+		}
+	100%{
+		width:500px;
+		background:blue;
+		}
+	}
+#box{width:100px; height:100px; background:red;}
+.move{animation:1s move ease-in 1;}
+</style>
+</head>
+
+<body>
+<div id="warp">
+<div id="box"></div>
+</div>
+<br>
+<br>
+ie10+支持
+<script>
+document.getElementById('box').onclick=function(){
+	addend(this,tk);
+	this.className='move';
+	};
+function tk(){
+	alert('end');
+	}
+function addend(obj,fn){
+	obj.addEventListener('animationend',fn,false);
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>结构性伪类</title>
+<style>
+/**{ padding:0px; margin:0px;}*/
+p{ height:30px; border:1px #000000 solid;}
+/*#asd p:nth-child(even){ background:red;}  第偶数个标签
+#asd p:nth-child(odd){ background:blue;}  第奇数个标签
+
+
+p:nth-child(2):找p标签父级下的第二个元素，这个元素必须是p标签
+p:nth-of-type(2):找p标签父级下的第二个p标签
+
+
+body *:nth-child(2):选择body下的第二个元素
+body *:nth-of-type(2):选择body下所有元素的第二个
+
+*/
+body *:nth-of-type(2){ background:red;}
+</style>
+</head>
+
+<body>
+<p>p0</p>
+<span>span1</span>
+<h2>h1</h2>
+<p>p1</p>
+<div>div1</div>
+<h2>h2</h2>
+<div>div2</div>
+<span>span2</span>
+<p>p2</p>
+<h2>h3</h2>
+<p>p3</p>
+<h2>h4</h2>
+<p>p4</p>
+<h2>h5</h2>
+<p>p5</p>
+<h2>h6</h2>
+<p>p6</p>
+<h2>h7</h2>
+<p>p7</p>
+<h2>h8</h2>
+<p>p8</p>
+
+支持ie9+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>属性选择器</title>
+<style>
+p{ height:30; border:1px #000000 solid;}
+/*p[zdysx~=old]{ background:#F00;}  选择词列表 必须用空格隔开*/
+/*p[zdysx^=g]{ background:pink;}      指定某个属性中某个字符串开头*/
+/*p[zdysx$=s]{ background:#666;}     指定某个属性中某个字符串结尾*/
+/*p[zdysx*=s]{ background:#3FF;}      指定某个属性中包含某个字符串*/
+/*p[zdysx|=b]{ background:#3FF;}       指定某个属性中以'值-'开头的或者属性中只有'值'的元素*/
+</style>
+</head>
+
+<body>
+<p zdysx='b-zs old'>张三</p>
+<p zdysx='bls'>李四</p>
+<p zdysx='b-ww'>王五</p>
+<p zdysx='b'>赵六</p>
+</body>
+</html>

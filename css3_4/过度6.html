@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>过度</title>
+<style>
+#box{ width:100px; height:100px; background:rgba(255,0,4,1.00); transition:1s;}
+
+</style>
+</head>
+
+<body>
+
+<div id="box"></div>
+<script>
+var obox=document.getElementById('box');
+obox.onmousedown=function(){
+	this.style.width=this.offsetWidth+100+'px';
+	
+	};
+	
+addEnd(obox,function(){
+	this.style.width=this.offsetWidth+100+'px';
+
+	});
+
+function addEnd(obj,fn){
+	obj.addEventListener('webkitTransitionEnd',fn,false);
+	obj.addEventListener('transitionend',fn,false);
+
+	}
+</script>
+支持ie10+
+</body>
+</html>

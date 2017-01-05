@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>弹性盒模型</title>
+<style>
+.box{ height:200px; border:10px #000000 solid; padding:10px; display:-moz-box;display:-webkit-box;/*-webkit-box-orient:vertical;*/-webkit-box-direction:normal;}
+.box div{ width:100px; height:100px; background:#FF0004; border:1px  #FFFFFF solid;}
+.box div:nth-of-type(1){-webkit-box-flex:1;}
+.box div:nth-of-type(2){-webkit-box-flex:2;}
+.box div:nth-of-type(3){-webkit-box-flex:3;}
+.box div:nth-of-type(4){-webkit-box-flex:4;}
+.box div:nth-of-type(5){-webkit-box-flex:5;}
+</style>
+</head>
+
+<body>
+<div class="box">
+	<div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+
+</div>
+仅对chrome,opera,firefox有效，需要加内核前缀
+</body>
+</html>

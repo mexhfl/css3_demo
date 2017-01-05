@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>倾斜的导航</title>
+<style>
+
+ul{margin:0; padding:0; list-style:none;}
+li{float:left; width:100px; text-align:center; height:30px; border:1px solid #fff; background:rgb(58,65,67); font:12px/30px "宋体"; transform:skewX(30deg);}
+.bj{ width:100px; height:30px;background:rgb(9,232,0); transform:scaleX(0); transition:200ms ;}
+a{ text-decoration:none;display:block; transform:skewX(-30deg); color:rgb(255,255,255); margin-top:-30px; transition:500ms;}
+
+/*li:nth-of-type(1):hover .bj{transform:scaleX(1);}
+li:nth-of-type(1):hover  a{ color:rgb(255,103,0); font-weight:bold;}
+li:nth-of-type(2):hover .bj{transform:scaleX(1);}
+li:nth-of-type(2):hover  a{ color:rgb(255,103,0); font-weight:bold;}
+li:nth-of-type(3):hover .bj{transform:scaleX(1);}
+li:nth-of-type(3):hover  a{ color:rgb(255,103,0); font-weight:bold;}
+li:nth-of-type(4):hover .bj{transform:scaleX(1);}
+li:nth-of-type(4):hover  a{ color:rgb(255,103,0); font-weight:bold;}
+*/
+
+li:nth-of-type(2n-1):hover .bj{transform:scaleX(1);}
+li:nth-of-type(2n-1):hover  a{ color:rgb(255,103,0); font-weight:bold;}
+
+li:nth-of-type(2n){ width:0; border:none;}
+</style>
+</head>
+
+<body>
+
+<ul>
+	<li><div class="bj"></div><a href="#">心幻枫林</a></li><li></li>
+    <li><div class="bj"></div><a href="#">心幻枫林</a></li><li></li>
+    <li><div class="bj"></div><a href="#">心幻枫林</a></li><li></li>
+    <li><div class="bj"></div><a href="#">心幻枫林</a></li><li></li>
+</ul>
+</body>
+</html>

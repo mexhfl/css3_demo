@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>时钟</title>
+<style id="css">
+#warp{width:200px; height:200px; border:2px #000 solid; margin:100px auto; border-radius:50%; position:relative;}
+#warp ul{margin:0; padding:0; height:200px; position:relative; list-style:none;}
+#warp ul li{width:2px; height:5px; background:#000; position:absolute; left:99px;top:0px; transform-origin:center 100px;}
+
+
+/*#warp ul li:nth-of-type(1){ transform:rotate(0deg);}
+#warp ul li:nth-of-type(2){ transform:rotate(6deg);}
+#warp ul li:nth-of-type(3){ transform:rotate(12deg);}
+#warp ul li:nth-of-type(4){ transform:rotate(18deg);}
+#warp ul li:nth-of-type(5){ transform:rotate(24deg);}
+#warp ul li:nth-of-type(6){ transform:rotate(30deg);}
+#warp ul li:nth-of-type(7){ transform:rotate(36deg);}
+#warp ul li:nth-of-type(8){ transform:rotate(42deg);}*/
+
+
+#warp ul li:nth-of-type(5n+1){ height:10px;}
+#hour{width:6px; height:45px; background:#000; position:absolute; left:97px; top:55px; transform-origin:bottom;}
+#min{width:4px; height:65px; background:#999; position:absolute; left:98px; top:35px; transform-origin:bottom;}
+#sec{width:2px; height:80px; background:red; position:absolute; left:99px; top:20px; transform-origin:bottom;}
+#zhou{width:16px; height:16px; border-radius:50%; background:#000; position:absolute; top:92px; left:92px;}
+
+
+</style>
+
+</head>
+
+<body>
+<div id="warp">
+	<ul id="list">
+<!--		<li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>-->
+	</ul>
+    <div id="hour"></div>
+    <div id="min"></div>
+    <div id="sec"></div>
+    <div id="zhou"></div>
+</div>
+<script>
+var oul=document.getElementById('list');
+var ocss=document.getElementById('css');
+var ohour=document.getElementById('hour');
+var omin=document.getElementById('min');
+var osec=document.getElementById('sec');
+
+var oli='';
+var ocs='';
+for(var i=0;i<60;i++){
+	oli+='<li></li>';
+	ocs+='#warp ul li:nth-of-type('+(i+1)+'){ transform:rotate('+(i*6)+'deg);}';
+	}
+oul.innerHTML=oli;
+ocss.innerHTML+=ocs;
+
+function toTime(){
+	var oDate=new Date();
+	var iHou=oDate.getHours();
+	var iMin=oDate.getMinutes();
+	var iSec=oDate.getSeconds();
+	
+	ohour.style.transform='rotate('+iHou*30+iMin/60*30+'deg)';
+	omin.style.transform='rotate('+iMin*6+'deg)';
+	osec.style.transform='rotate('+iSec*6+'deg)';
+	
+	}
+
+setInterval(toTime,500);
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>风车</title>
+<style>
+#box{ width:400px; height:400px; margin:50px auto; transition:5s linear;}
+#box div{width:180px; height:180px; margin:10px; border:1px rgba(0,0,0,1.00) solid; box-sizing:border-box; float:left; background:url(new_bg.png) no-repeat;}
+#box div:nth-of-type(1),#box div:nth-of-type(4){ border-radius:0 70%;}
+#box div:nth-of-type(2),#box div:nth-of-type(3){ border-radius:70% 0;}
+#box:hover{transform:rotate(720deg);}
+</style>
+</head>
+
+<body>
+<div id="box">
+	<div></div>
+    <div></div>
+    <div></div>
+	<div></div>
+</div>
+支持ie10+
+</body>
+</html>

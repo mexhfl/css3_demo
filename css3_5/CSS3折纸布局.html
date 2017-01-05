@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3折纸</title>
+<style>
+#warp{width:500px; margin:0 auto; perspective:800px; transform-style:preserve-3d; position:relative;}
+#warp div{ position:absolute; top:102px; left:0; width:500px;transform-style:preserve-3d;transform-origin:top;}
+#warp span{ height:100px; background:#ccc; border:1px #000 solid; display:block;}
+#warp>div:nth-of-type(1){top:0; }
+</style>
+
+</head>
+
+<body>
+<div  id="warp">
+	<div style="transform:rotateX(45deg);">
+    	<span>1</span>
+        <div style="transform:rotateX(-90deg);">
+        	<span>2</span>
+            <div style="transform:rotateX(90deg);">
+            	<span>3</span>
+                <div style="transform:rotateX(-90deg);">
+                	<span>4</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

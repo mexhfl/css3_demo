@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>矩阵</title>
+<style>
+body{width:300px; border:1px #000 solid;}
+#box{width:100px; height:100px; background:red; transition:1s;}
+body:hover #box{transform:matrix(1,0,0,1,100,0);filter:progid:DXImageTransform.Microsoft.Matrix( M11= 0.12,M12= 0.87,M21= 0.45,M22=0.12,SizingMethod='auto expand');}
+
+/*
+
+matrix(1,0,0,1,0,0);
+matrix(a,b,c,d,e,f);
+
+
+位移：
+x:e+disX;
+y:f+disY;
+*/
+</style>
+</head>
+
+<body>
+<div id="box"></div>
+
+</body>
+</html>

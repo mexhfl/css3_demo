@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无缝滚动</title>
+
+<style>
+@keyframes anim{
+	
+	0%{
+		left:0;
+		}
+	100%{
+		left:-600px;
+		}
+	}
+*{ padding:0; margin:0;}
+#warp{width:600px; height:100px; border:1px #000 solid; position:relative; margin:100px auto; overflow:hidden;}
+#list{ position:absolute; top:0; left:0;animation:2s anim linear  infinite; width:200%;}
+#list li{ list-style:none; width:98px; height:98px; border:1px rgba(0,57,241,1.00) solid; background:rgba(159,255,126,1.00); color:rgba(102,0,104,1.00); font:50px/98px '黑体'; text-align:center; float:left; }
+#warp:hover #list{animation-play-state:paused;}
+</style>
+</head>
+
+<body>
+<div id="warp">
+	<ul id="list">
+    	<li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+<br>
+支持ie10+
+</body>
+</html>

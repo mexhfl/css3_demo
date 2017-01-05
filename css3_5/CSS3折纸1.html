@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3折纸</title>
+
+<style>
+@keyframes open{
+	0%
+	{
+		-webkit-transform:rotateX(-120deg);
+	}
+	25%
+	{
+		-webkit-transform:rotateX(15deg);
+	}
+	50%
+	{
+		-webkit-transform:rotateX(-10deg);
+	}
+	75%
+	{
+		-webkit-transform:rotateX(4deg);
+	}
+	100%
+	{
+		-webkit-transform:rotateX(0deg);
+	}
+}
+body{margin:0;}
+#warp{width:180px; margin:30px auto; position:relative; perspective:800px;}
+#warp h2{height:40px; background:#f60; color:#fff; font:bold 16px/40px "微软雅黑"; text-align:center; margin:0; position:relative; z-index:10;}
+#warp div{position:absolute; top:32px; width:100%; left:0; transform-style:preserve-3d; transform-origin:top;transform:rotateX(-120deg);}
+#warp span{display:block; height:30px; background:#9f0; font:14px/30px "宋体"; text-indent:2em;}
+#warp>div{top:40px;}
+
+#warp .show{animation:1s open; transform:rotateX(0deg);}
+#btn{position:absolute;left:0;top:20px;}
+
+</style>
+<script>
+window.onload=function(){
+	var obtn=document.getElementById('btn');
+	var owarp=document.getElementById('warp');
+	var adiv=owarp.getElementsByTagName('div');
+	obtn.onclick=function(){
+		for(var i=0;i<adiv.length;i++){
+			adiv[i].className='show';
+			}
+		}
+	}
+</script>
+
+</head>
+
+<body>
+<input type="button" value="按钮" id="btn"/>
+<div id="warp">
+	<h2>这里是标题</h2>
+    <div>
+    	<span>选项1</span>
+        <div>
+        	<span>选项2</span>
+            <div>
+            	<span>选项3</span>
+                <div>
+                	<span>选项4</span>
+                    <div>
+                    	<span>选项5</span>
+                        <div>
+                        	<span>选项6</span>
+                            <div>
+                            	<span>选项7</span>
+                                <div>
+                                	<span>选项8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

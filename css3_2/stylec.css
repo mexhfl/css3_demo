@@ -1,0 +1,4 @@
+@charset "utf-8";
+/* CSS Document */
+
+#warp{border:1px #000000 solid; font:12px/28px "宋体"; color:rgba(0,0,0,1.00); text-indent:2em;/*-webkit-column-width:250px;*/-webkit-column-count:1;-webkit-column-gap:10px;-webkit-column-rule:1px #000 solid; color:blue;}
